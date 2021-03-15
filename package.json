@@ -1,6 +1,6 @@
 {
   "name": "@garax/cryptme",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A CLI for crypt",
   "main": "src/cli.js",
   "bin": {
