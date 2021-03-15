@@ -1,18 +1,30 @@
 #!/usr/bin/env node
 
-import {Command, option} from 'commander';
+import { Command, option } from "commander";
 const program = new Command();
-import crypto from 'crypto'
+import crypto from "crypto";
 const options = program.opts();
+import readline from "readline";
 
-program
-    .option('-c, --convert <label>', 'app environment');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
-let label: any = options.convert ? `${options.convert}` : '';
+program.option(`-c, --convert`, "app environment");
 
-const hash = crypto.createHmac('sha256', label)
-    .digest('hex');
+let label: any = rl.question("Please write: ", (input) => {
+  // console.log('Please write: ')
+
+  let result = crypto.createHmac("sha256", input).digest("hex");
+  console.log(result);
+
+  rl.on("close", () => {
+    console.log("Have a great day!");
+    process.exit(0);
+  });
+});
 
 program.parse(process.argv);
 
-if (options.convert) console.log(hash)
+if (options.convert) label;

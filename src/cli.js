@@ -8,11 +8,21 @@ const commander_1 = require("commander");
 const program = new commander_1.Command();
 const crypto_1 = __importDefault(require("crypto"));
 const options = program.opts();
-program
-    .option('-c, --convert <label>', 'app environment');
-let label = options.convert ? `${options.convert}` : '';
-const hash = crypto_1.default.createHmac('sha256', label)
-    .digest('hex');
+const readline_1 = __importDefault(require("readline"));
+const rl = readline_1.default.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+});
+program.option(`-c, --convert`, "app environment");
+let label = rl.question("Please write: ", (input) => {
+    // console.log('Please write: ')
+    let result = crypto_1.default.createHmac("sha256", input).digest("hex");
+    console.log(result);
+    rl.on("close", () => {
+        console.log("Have a great day!");
+        process.exit(0);
+    });
+});
 program.parse(process.argv);
 if (options.convert)
-    console.log(hash);
+    label;
