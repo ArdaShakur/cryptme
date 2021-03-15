@@ -15,3 +15,9 @@ npm install
 tsc
 sudo npm link
 ```
+
+### How to Use Cryptme
+```bash
+cryptme -c
+```
+For now it only generates SHA256 code.
