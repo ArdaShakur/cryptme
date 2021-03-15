@@ -12,5 +12,6 @@ npm install -g @garax/cryptme
 git clone https://github.com/garaxPrime/cryptme.git
 cd cryptme
 npm install
+tsc
 sudo npm link
 ```
