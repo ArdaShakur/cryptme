@@ -1,6 +1,6 @@
 {
   "name": "@garax/cryptme",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A CLI for crypt",
   "main": "src/cli.js",
   "bin": {
@@ -12,7 +12,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "cli",
+    "crypt"
+  ],
   "author": "garax",
   "license": "ISC",
   "dependencies": {
