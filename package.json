@@ -1,10 +1,10 @@
 {
   "name": "@garax/cryptme",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A CLI for crypt",
   "main": "src/cli.js",
   "bin": {
-    "cryptme": "./index.js"
+    "cryptme": "index.js"
   },
   "publishConfig": {
     "access": "public"
