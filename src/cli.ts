@@ -2,7 +2,7 @@
 
 import { Command, option } from "commander";
 const program = new Command();
-import crypto from "crypto";
+import crypto, { Hash } from "crypto";
 const options = program.opts();
 import readline from "readline";
 
@@ -11,20 +11,29 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-program.option(`-c, --convert`, "app environment");
+program
+  .option(`-s, --sha256`, "SHA256")
+  .option(`-b --base46`, "BASE46");
 
-let label: any = rl.question("Please write: ", (input) => {
+let sha: any = rl.question("Please write: ", (input) => {
   // console.log('Please write: ')
+  let binary = Buffer.from(input, 'utf-8');
+  let sha256Data = binary.toString('hex');
 
-  let result = crypto.createHmac("sha256", input).digest("hex");
-  console.log(result);
-
-  rl.on("close", () => {
-    console.log("Have a great day!");
-    process.exit(0);
-  });
+  console.log(sha256Data);
 });
+
+let base: any = rl.question("Please write: ", (input) => {
+
+  let binary = Buffer.from(input, "utf-8");
+  let base46Data = binary.toString('base64');
+
+  console.log(base46Data);
+});
+
+
 
 program.parse(process.argv);
 
-if (options.convert) label;
+if (options.sha256) sha;
+if (options.base46) base;

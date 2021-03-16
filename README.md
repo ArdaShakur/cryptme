@@ -18,6 +18,6 @@ sudo npm link
 
 ### How to Use Cryptme
 ```bash
-cryptme -c
+cryptme -h
 ```
 For now it only generates SHA256 code.
