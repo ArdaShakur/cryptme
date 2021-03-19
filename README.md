@@ -20,4 +20,4 @@ sudo npm link
 ```bash
 cryptme -h
 ```
-For now it only generates SHA256 code.
+For now it only generates SHA256 and BASE46 code.
