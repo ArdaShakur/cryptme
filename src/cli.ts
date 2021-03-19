@@ -20,7 +20,7 @@ program.parse(process.argv);
 
 if (options.sha256) {
   rl.question("Please write: ", (input) => {
-    let binary = Buffer.from(input, "utf-8");
+    let binary = Buffer.from(input, 'utf-8');
     let sha256Data = binary.toString('hex');
     console.log(sha256Data);
   })
